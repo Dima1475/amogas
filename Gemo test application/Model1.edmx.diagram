@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="659e1654bebd4dbfaacb534d38a0713b" Name="Diagram1">
+        <EntityTypeShape EntityType="GemoTestModel.Analyzes" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="GemoTestModel.AnalyzesForOrder" Width="1.5" PointX="8.25" PointY="4.375" />
+        <EntityTypeShape EntityType="GemoTestModel.AnalyzesForStudy" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="GemoTestModel.AnalyzesResults" Width="1.5" PointX="6" PointY="12.375" />
+        <EntityTypeShape EntityType="GemoTestModel.Doctors" Width="1.5" PointX="3.75" PointY="7.25" />
+        <EntityTypeShape EntityType="GemoTestModel.Elements" Width="1.5" PointX="3.75" PointY="14.625" />
+        <EntityTypeShape EntityType="GemoTestModel.ElementsNeedForAnalyze" Width="1.5" PointX="6" PointY="8.5" />
+        <EntityTypeShape EntityType="GemoTestModel.Genders" Width="1.5" PointX="1.5" PointY="11.625" />
+        <EntityTypeShape EntityType="GemoTestModel.Orders" Width="1.5" PointX="6" PointY="4" />
+        <EntityTypeShape EntityType="GemoTestModel.Patients" Width="1.5" PointX="3.75" PointY="11.25" />
+        <EntityTypeShape EntityType="GemoTestModel.Services" Width="1.5" PointX="0.75" PointY="1.625" />
+        <EntityTypeShape EntityType="GemoTestModel.ServicesForStudy" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="GemoTestModel.Study" Width="1.5" PointX="0.75" PointY="4.5" />
+        <AssociationConnector Association="GemoTestModel.FK_AnalyzesForOrder_Analyzes" />
+        <AssociationConnector Association="GemoTestModel.FK_AnalyzesForStudy_Analyzes" />
+        <AssociationConnector Association="GemoTestModel.FK_AnalyzesResults_Analyzes" />
+        <AssociationConnector Association="GemoTestModel.FK_ElementsNeedForAnalyze_Analyzes" />
+        <AssociationConnector Association="GemoTestModel.FK_AnalyzesForOrder_Orders" />
+        <AssociationConnector Association="GemoTestModel.FK_AnalyzesForStudy_Study" />
+        <AssociationConnector Association="GemoTestModel.FK_AnalyzesResults_Patients" />
+        <AssociationConnector Association="GemoTestModel.FK_Orders_Doctors" />
+        <AssociationConnector Association="GemoTestModel.FK_ElementsNeedForAnalyze_Elements" />
+        <AssociationConnector Association="GemoTestModel.FK_Patients_Genders" />
+        <AssociationConnector Association="GemoTestModel.FK_Orders_Patients" />
+        <AssociationConnector Association="GemoTestModel.FK_Orders_Study" />
+        <AssociationConnector Association="GemoTestModel.FK_ServicesForStudy_Services" />
+        <AssociationConnector Association="GemoTestModel.FK_ServicesForStudy_Study" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

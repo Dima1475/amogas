@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gemo test application", "Gemo test application\Gemo test application.csproj", "{19119641-8626-4A93-8F9A-114473948B61}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19119641-8626-4A93-8F9A-114473948B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19119641-8626-4A93-8F9A-114473948B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19119641-8626-4A93-8F9A-114473948B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19119641-8626-4A93-8F9A-114473948B61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BBC30FA-4EBA-4082-970E-54F9F0CC9D32}
+	EndGlobalSection
+EndGlobal

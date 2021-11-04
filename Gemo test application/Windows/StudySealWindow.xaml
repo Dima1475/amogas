@@ -1,0 +1,41 @@
+﻿<Window x:Class="Gemo_test_application.StudySealWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gemo_test_application"
+        mc:Ignorable="d"
+        Title="StudySealWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <Canvas x:Name="canvasStudyForSeal">
+        <StackPanel Margin="10 0 0 0">
+            <TextBlock Text="Лабораторная служба &quot;Гемотест&quot;" FontSize="20" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="тел: 8-800-555-55-55" FontSize="20" FontWeight="Bold" Margin="0 5 0 0"></TextBlock>
+            <TextBlock Text="Информация в интернете: www.HT.ru" FontSize="20" FontWeight="Bold" Margin="0 5 0 0"></TextBlock>
+        </StackPanel>
+        <Border BorderThickness="0 1 0 0" BorderBrush="Black" Height="5" Width="772" Canvas.Left="10" Canvas.Top="96"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="3" Canvas.Left="10" Canvas.Top="106">
+            <TextBlock Name="txtOrderNumber" Text="ЗАКАЗ №: "></TextBlock>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="3" Canvas.Left="10" Canvas.Top="129">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="ПАЦИЕНТ: "></TextBlock>
+                <StackPanel Margin="10 0 0 0">
+                    <TextBlock Name="txtSecondName" Text="Фамилия: "></TextBlock>
+                    <TextBlock Name="txtName" Text="Имя: "></TextBlock>
+                    <TextBlock Name="txtMiddleName" Text="Отчество: "></TextBlock>
+                    <TextBlock Name="txtGender" Text="Пол: "></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderThickness="0 1 0 0" BorderBrush="Black" Height="5" Width="772" Canvas.Left="10" Canvas.Top="222"></Border>
+        <DataGrid Name="datagridSum" AutoGenerateColumns="False" IsReadOnly="True" Canvas.Left="10" Canvas.Top="232" Width="772" Height="142">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Width="600" Binding="{Binding Analyzes.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Width="200" Binding="{Binding Price}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Border Canvas.Left="10" Canvas.Top="374" BorderThickness="1" BorderBrush="Gray" Width="772">
+            <TextBlock Name="txtAllSum" FontSize="20" Margin="519,0,-1,0">Итого:</TextBlock>
+        </Border>
+    </Canvas>
+</Window>

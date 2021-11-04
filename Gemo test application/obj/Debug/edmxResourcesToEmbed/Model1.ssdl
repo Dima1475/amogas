@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище GemoTestModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Analyzes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="AnalyzesForOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Order" Type="int" />
+    <Property Name="id_Analyze" Type="int" />
+    <Property Name="Needed" Type="bit" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="AnalyzesForStudy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Study" Type="int" />
+    <Property Name="id_Analyzes" Type="int" />
+  </EntityType>
+  <EntityType Name="AnalyzesResults">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Patient" Type="int" />
+    <Property Name="id_Analyze" Type="int" />
+    <Property Name="Result" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Elements">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ElementsNeedForAnalyze">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Analyze" Type="int" />
+    <Property Name="id_Element" Type="int" />
+    <Property Name="Count" Type="int" />
+  </EntityType>
+  <EntityType Name="Genders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Patient" Type="int" />
+    <Property Name="id_Doctor" Type="int" />
+    <Property Name="id_Study" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Code" Type="varchar" MaxLength="13" />
+    <Property Name="EndPrice" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Age" Type="int" />
+    <Property Name="id_Gender" Type="int" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ServicesForStudy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Study" Type="int" />
+    <Property Name="id_Service" Type="int" />
+  </EntityType>
+  <EntityType Name="Study">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_AnalyzesForOrder_Analyzes">
+    <End Role="Analyzes" Type="Self.Analyzes" Multiplicity="0..1" />
+    <End Role="AnalyzesForOrder" Type="Self.AnalyzesForOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analyzes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesForOrder">
+        <PropertyRef Name="id_Analyze" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesForOrder_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="AnalyzesForOrder" Type="Self.AnalyzesForOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesForOrder">
+        <PropertyRef Name="id_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesForStudy_Analyzes">
+    <End Role="Analyzes" Type="Self.Analyzes" Multiplicity="0..1" />
+    <End Role="AnalyzesForStudy" Type="Self.AnalyzesForStudy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analyzes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesForStudy">
+        <PropertyRef Name="id_Analyzes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesForStudy_Study">
+    <End Role="Study" Type="Self.Study" Multiplicity="0..1" />
+    <End Role="AnalyzesForStudy" Type="Self.AnalyzesForStudy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Study">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesForStudy">
+        <PropertyRef Name="id_Study" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesResults_Analyzes">
+    <End Role="Analyzes" Type="Self.Analyzes" Multiplicity="0..1" />
+    <End Role="AnalyzesResults" Type="Self.AnalyzesResults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analyzes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesResults">
+        <PropertyRef Name="id_Analyze" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesResults_Patients">
+    <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+    <End Role="AnalyzesResults" Type="Self.AnalyzesResults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesResults">
+        <PropertyRef Name="id_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ElementsNeedForAnalyze_Analyzes">
+    <End Role="Analyzes" Type="Self.Analyzes" Multiplicity="0..1" />
+    <End Role="ElementsNeedForAnalyze" Type="Self.ElementsNeedForAnalyze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analyzes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElementsNeedForAnalyze">
+        <PropertyRef Name="id_Analyze" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ElementsNeedForAnalyze_Elements">
+    <End Role="Elements" Type="Self.Elements" Multiplicity="0..1" />
+    <End Role="ElementsNeedForAnalyze" Type="Self.ElementsNeedForAnalyze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elements">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElementsNeedForAnalyze">
+        <PropertyRef Name="id_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Doctors">
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_Doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Patients">
+    <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Study">
+    <End Role="Study" Type="Self.Study" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Study">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_Study" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patients_Genders">
+    <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+    <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="id_Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicesForStudy_Services">
+    <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+    <End Role="ServicesForStudy" Type="Self.ServicesForStudy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ServicesForStudy">
+        <PropertyRef Name="id_Service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicesForStudy_Study">
+    <End Role="Study" Type="Self.Study" Multiplicity="0..1" />
+    <End Role="ServicesForStudy" Type="Self.ServicesForStudy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Study">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ServicesForStudy">
+        <PropertyRef Name="id_Study" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище GemoTestModelContainer">
+    <EntitySet Name="Analyzes" EntityType="Self.Analyzes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnalyzesForOrder" EntityType="Self.AnalyzesForOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnalyzesForStudy" EntityType="Self.AnalyzesForStudy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnalyzesResults" EntityType="Self.AnalyzesResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Elements" EntityType="Self.Elements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElementsNeedForAnalyze" EntityType="Self.ElementsNeedForAnalyze" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServicesForStudy" EntityType="Self.ServicesForStudy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Study" EntityType="Self.Study" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AnalyzesForOrder_Analyzes" Association="Self.FK_AnalyzesForOrder_Analyzes">
+      <End Role="Analyzes" EntitySet="Analyzes" />
+      <End Role="AnalyzesForOrder" EntitySet="AnalyzesForOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesForOrder_Orders" Association="Self.FK_AnalyzesForOrder_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="AnalyzesForOrder" EntitySet="AnalyzesForOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesForStudy_Analyzes" Association="Self.FK_AnalyzesForStudy_Analyzes">
+      <End Role="Analyzes" EntitySet="Analyzes" />
+      <End Role="AnalyzesForStudy" EntitySet="AnalyzesForStudy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesForStudy_Study" Association="Self.FK_AnalyzesForStudy_Study">
+      <End Role="Study" EntitySet="Study" />
+      <End Role="AnalyzesForStudy" EntitySet="AnalyzesForStudy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesResults_Analyzes" Association="Self.FK_AnalyzesResults_Analyzes">
+      <End Role="Analyzes" EntitySet="Analyzes" />
+      <End Role="AnalyzesResults" EntitySet="AnalyzesResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesResults_Patients" Association="Self.FK_AnalyzesResults_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="AnalyzesResults" EntitySet="AnalyzesResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ElementsNeedForAnalyze_Analyzes" Association="Self.FK_ElementsNeedForAnalyze_Analyzes">
+      <End Role="Analyzes" EntitySet="Analyzes" />
+      <End Role="ElementsNeedForAnalyze" EntitySet="ElementsNeedForAnalyze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ElementsNeedForAnalyze_Elements" Association="Self.FK_ElementsNeedForAnalyze_Elements">
+      <End Role="Elements" EntitySet="Elements" />
+      <End Role="ElementsNeedForAnalyze" EntitySet="ElementsNeedForAnalyze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Doctors" Association="Self.FK_Orders_Doctors">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Patients" Association="Self.FK_Orders_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Study" Association="Self.FK_Orders_Study">
+      <End Role="Study" EntitySet="Study" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patients_Genders" Association="Self.FK_Patients_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicesForStudy_Services" Association="Self.FK_ServicesForStudy_Services">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="ServicesForStudy" EntitySet="ServicesForStudy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicesForStudy_Study" Association="Self.FK_ServicesForStudy_Study">
+      <End Role="Study" EntitySet="Study" />
+      <End Role="ServicesForStudy" EntitySet="ServicesForStudy" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

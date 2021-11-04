@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GemoTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GemoTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Analyzes" EntityType="GemoTestModel.Analyzes" />
+    <EntitySet Name="AnalyzesForOrder" EntityType="GemoTestModel.AnalyzesForOrder" />
+    <EntitySet Name="AnalyzesForStudy" EntityType="GemoTestModel.AnalyzesForStudy" />
+    <EntitySet Name="AnalyzesResults" EntityType="GemoTestModel.AnalyzesResults" />
+    <EntitySet Name="Doctors" EntityType="GemoTestModel.Doctors" />
+    <EntitySet Name="Elements" EntityType="GemoTestModel.Elements" />
+    <EntitySet Name="ElementsNeedForAnalyze" EntityType="GemoTestModel.ElementsNeedForAnalyze" />
+    <EntitySet Name="Genders" EntityType="GemoTestModel.Genders" />
+    <EntitySet Name="Orders" EntityType="GemoTestModel.Orders" />
+    <EntitySet Name="Patients" EntityType="GemoTestModel.Patients" />
+    <EntitySet Name="Services" EntityType="GemoTestModel.Services" />
+    <EntitySet Name="ServicesForStudy" EntityType="GemoTestModel.ServicesForStudy" />
+    <EntitySet Name="Study" EntityType="GemoTestModel.Study" />
+    <AssociationSet Name="FK_AnalyzesForOrder_Analyzes" Association="GemoTestModel.FK_AnalyzesForOrder_Analyzes">
+      <End Role="Analyzes" EntitySet="Analyzes" />
+      <End Role="AnalyzesForOrder" EntitySet="AnalyzesForOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesForStudy_Analyzes" Association="GemoTestModel.FK_AnalyzesForStudy_Analyzes">
+      <End Role="Analyzes" EntitySet="Analyzes" />
+      <End Role="AnalyzesForStudy" EntitySet="AnalyzesForStudy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesResults_Analyzes" Association="GemoTestModel.FK_AnalyzesResults_Analyzes">
+      <End Role="Analyzes" EntitySet="Analyzes" />
+      <End Role="AnalyzesResults" EntitySet="AnalyzesResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ElementsNeedForAnalyze_Analyzes" Association="GemoTestModel.FK_ElementsNeedForAnalyze_Analyzes">
+      <End Role="Analyzes" EntitySet="Analyzes" />
+      <End Role="ElementsNeedForAnalyze" EntitySet="ElementsNeedForAnalyze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesForOrder_Orders" Association="GemoTestModel.FK_AnalyzesForOrder_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="AnalyzesForOrder" EntitySet="AnalyzesForOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesForStudy_Study" Association="GemoTestModel.FK_AnalyzesForStudy_Study">
+      <End Role="Study" EntitySet="Study" />
+      <End Role="AnalyzesForStudy" EntitySet="AnalyzesForStudy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalyzesResults_Patients" Association="GemoTestModel.FK_AnalyzesResults_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="AnalyzesResults" EntitySet="AnalyzesResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Doctors" Association="GemoTestModel.FK_Orders_Doctors">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ElementsNeedForAnalyze_Elements" Association="GemoTestModel.FK_ElementsNeedForAnalyze_Elements">
+      <End Role="Elements" EntitySet="Elements" />
+      <End Role="ElementsNeedForAnalyze" EntitySet="ElementsNeedForAnalyze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patients_Genders" Association="GemoTestModel.FK_Patients_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Patients" Association="GemoTestModel.FK_Orders_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Study" Association="GemoTestModel.FK_Orders_Study">
+      <End Role="Study" EntitySet="Study" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicesForStudy_Services" Association="GemoTestModel.FK_ServicesForStudy_Services">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="ServicesForStudy" EntitySet="ServicesForStudy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicesForStudy_Study" Association="GemoTestModel.FK_ServicesForStudy_Study">
+      <End Role="Study" EntitySet="Study" />
+      <End Role="ServicesForStudy" EntitySet="ServicesForStudy" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Analyzes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AnalyzesForOrder" Relationship="GemoTestModel.FK_AnalyzesForOrder_Analyzes" FromRole="Analyzes" ToRole="AnalyzesForOrder" />
+    <NavigationProperty Name="AnalyzesForStudy" Relationship="GemoTestModel.FK_AnalyzesForStudy_Analyzes" FromRole="Analyzes" ToRole="AnalyzesForStudy" />
+    <NavigationProperty Name="AnalyzesResults" Relationship="GemoTestModel.FK_AnalyzesResults_Analyzes" FromRole="Analyzes" ToRole="AnalyzesResults" />
+    <NavigationProperty Name="ElementsNeedForAnalyze" Relationship="GemoTestModel.FK_ElementsNeedForAnalyze_Analyzes" FromRole="Analyzes" ToRole="ElementsNeedForAnalyze" />
+  </EntityType>
+  <EntityType Name="AnalyzesForOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Order" Type="Int32" />
+    <Property Name="id_Analyze" Type="Int32" />
+    <Property Name="Needed" Type="Boolean" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Analyzes" Relationship="GemoTestModel.FK_AnalyzesForOrder_Analyzes" FromRole="AnalyzesForOrder" ToRole="Analyzes" />
+    <NavigationProperty Name="Orders" Relationship="GemoTestModel.FK_AnalyzesForOrder_Orders" FromRole="AnalyzesForOrder" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="AnalyzesForStudy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Study" Type="Int32" />
+    <Property Name="id_Analyzes" Type="Int32" />
+    <NavigationProperty Name="Analyzes" Relationship="GemoTestModel.FK_AnalyzesForStudy_Analyzes" FromRole="AnalyzesForStudy" ToRole="Analyzes" />
+    <NavigationProperty Name="Study" Relationship="GemoTestModel.FK_AnalyzesForStudy_Study" FromRole="AnalyzesForStudy" ToRole="Study" />
+  </EntityType>
+  <EntityType Name="AnalyzesResults">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Patient" Type="Int32" />
+    <Property Name="id_Analyze" Type="Int32" />
+    <Property Name="Result" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Analyzes" Relationship="GemoTestModel.FK_AnalyzesResults_Analyzes" FromRole="AnalyzesResults" ToRole="Analyzes" />
+    <NavigationProperty Name="Patients" Relationship="GemoTestModel.FK_AnalyzesResults_Patients" FromRole="AnalyzesResults" ToRole="Patients" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="GemoTestModel.FK_Orders_Doctors" FromRole="Doctors" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Elements">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ElementsNeedForAnalyze" Relationship="GemoTestModel.FK_ElementsNeedForAnalyze_Elements" FromRole="Elements" ToRole="ElementsNeedForAnalyze" />
+  </EntityType>
+  <EntityType Name="ElementsNeedForAnalyze">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Analyze" Type="Int32" />
+    <Property Name="id_Element" Type="Int32" />
+    <Property Name="Count" Type="Int32" />
+    <NavigationProperty Name="Analyzes" Relationship="GemoTestModel.FK_ElementsNeedForAnalyze_Analyzes" FromRole="ElementsNeedForAnalyze" ToRole="Analyzes" />
+    <NavigationProperty Name="Elements" Relationship="GemoTestModel.FK_ElementsNeedForAnalyze_Elements" FromRole="ElementsNeedForAnalyze" ToRole="Elements" />
+  </EntityType>
+  <EntityType Name="Genders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Patients" Relationship="GemoTestModel.FK_Patients_Genders" FromRole="Genders" ToRole="Patients" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Patient" Type="Int32" />
+    <Property Name="id_Doctor" Type="Int32" />
+    <Property Name="id_Study" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Code" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="EndPrice" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="AnalyzesForOrder" Relationship="GemoTestModel.FK_AnalyzesForOrder_Orders" FromRole="Orders" ToRole="AnalyzesForOrder" />
+    <NavigationProperty Name="Doctors" Relationship="GemoTestModel.FK_Orders_Doctors" FromRole="Orders" ToRole="Doctors" />
+    <NavigationProperty Name="Patients" Relationship="GemoTestModel.FK_Orders_Patients" FromRole="Orders" ToRole="Patients" />
+    <NavigationProperty Name="Study" Relationship="GemoTestModel.FK_Orders_Study" FromRole="Orders" ToRole="Study" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="id_Gender" Type="Int32" />
+    <NavigationProperty Name="AnalyzesResults" Relationship="GemoTestModel.FK_AnalyzesResults_Patients" FromRole="Patients" ToRole="AnalyzesResults" />
+    <NavigationProperty Name="Genders" Relationship="GemoTestModel.FK_Patients_Genders" FromRole="Patients" ToRole="Genders" />
+    <NavigationProperty Name="Orders" Relationship="GemoTestModel.FK_Orders_Patients" FromRole="Patients" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ServicesForStudy" Relationship="GemoTestModel.FK_ServicesForStudy_Services" FromRole="Services" ToRole="ServicesForStudy" />
+  </EntityType>
+  <EntityType Name="ServicesForStudy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Study" Type="Int32" />
+    <Property Name="id_Service" Type="Int32" />
+    <NavigationProperty Name="Services" Relationship="GemoTestModel.FK_ServicesForStudy_Services" FromRole="ServicesForStudy" ToRole="Services" />
+    <NavigationProperty Name="Study" Relationship="GemoTestModel.FK_ServicesForStudy_Study" FromRole="ServicesForStudy" ToRole="Study" />
+  </EntityType>
+  <EntityType Name="Study">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AnalyzesForStudy" Relationship="GemoTestModel.FK_AnalyzesForStudy_Study" FromRole="Study" ToRole="AnalyzesForStudy" />
+    <NavigationProperty Name="Orders" Relationship="GemoTestModel.FK_Orders_Study" FromRole="Study" ToRole="Orders" />
+    <NavigationProperty Name="ServicesForStudy" Relationship="GemoTestModel.FK_ServicesForStudy_Study" FromRole="Study" ToRole="ServicesForStudy" />
+  </EntityType>
+  <Association Name="FK_AnalyzesForOrder_Analyzes">
+    <End Type="GemoTestModel.Analyzes" Role="Analyzes" Multiplicity="0..1" />
+    <End Type="GemoTestModel.AnalyzesForOrder" Role="AnalyzesForOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analyzes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesForOrder">
+        <PropertyRef Name="id_Analyze" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesForStudy_Analyzes">
+    <End Type="GemoTestModel.Analyzes" Role="Analyzes" Multiplicity="0..1" />
+    <End Type="GemoTestModel.AnalyzesForStudy" Role="AnalyzesForStudy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analyzes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesForStudy">
+        <PropertyRef Name="id_Analyzes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesResults_Analyzes">
+    <End Type="GemoTestModel.Analyzes" Role="Analyzes" Multiplicity="0..1" />
+    <End Type="GemoTestModel.AnalyzesResults" Role="AnalyzesResults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analyzes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesResults">
+        <PropertyRef Name="id_Analyze" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ElementsNeedForAnalyze_Analyzes">
+    <End Type="GemoTestModel.Analyzes" Role="Analyzes" Multiplicity="0..1" />
+    <End Type="GemoTestModel.ElementsNeedForAnalyze" Role="ElementsNeedForAnalyze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analyzes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElementsNeedForAnalyze">
+        <PropertyRef Name="id_Analyze" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesForOrder_Orders">
+    <End Type="GemoTestModel.Orders" Role="Orders" Multiplicity="0..1" />
+    <End Type="GemoTestModel.AnalyzesForOrder" Role="AnalyzesForOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesForOrder">
+        <PropertyRef Name="id_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesForStudy_Study">
+    <End Type="GemoTestModel.Study" Role="Study" Multiplicity="0..1" />
+    <End Type="GemoTestModel.AnalyzesForStudy" Role="AnalyzesForStudy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Study">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesForStudy">
+        <PropertyRef Name="id_Study" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalyzesResults_Patients">
+    <End Type="GemoTestModel.Patients" Role="Patients" Multiplicity="0..1" />
+    <End Type="GemoTestModel.AnalyzesResults" Role="AnalyzesResults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AnalyzesResults">
+        <PropertyRef Name="id_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Doctors">
+    <End Type="GemoTestModel.Doctors" Role="Doctors" Multiplicity="0..1" />
+    <End Type="GemoTestModel.Orders" Role="Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_Doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ElementsNeedForAnalyze_Elements">
+    <End Type="GemoTestModel.Elements" Role="Elements" Multiplicity="0..1" />
+    <End Type="GemoTestModel.ElementsNeedForAnalyze" Role="ElementsNeedForAnalyze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Elements">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElementsNeedForAnalyze">
+        <PropertyRef Name="id_Element" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patients_Genders">
+    <End Type="GemoTestModel.Genders" Role="Genders" Multiplicity="0..1" />
+    <End Type="GemoTestModel.Patients" Role="Patients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="id_Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Patients">
+    <End Type="GemoTestModel.Patients" Role="Patients" Multiplicity="0..1" />
+    <End Type="GemoTestModel.Orders" Role="Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Study">
+    <End Type="GemoTestModel.Study" Role="Study" Multiplicity="0..1" />
+    <End Type="GemoTestModel.Orders" Role="Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Study">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_Study" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicesForStudy_Services">
+    <End Type="GemoTestModel.Services" Role="Services" Multiplicity="0..1" />
+    <End Type="GemoTestModel.ServicesForStudy" Role="ServicesForStudy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ServicesForStudy">
+        <PropertyRef Name="id_Service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicesForStudy_Study">
+    <End Type="GemoTestModel.Study" Role="Study" Multiplicity="0..1" />
+    <End Type="GemoTestModel.ServicesForStudy" Role="ServicesForStudy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Study">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ServicesForStudy">
+        <PropertyRef Name="id_Study" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

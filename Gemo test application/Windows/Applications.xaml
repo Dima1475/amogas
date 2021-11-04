@@ -1,0 +1,27 @@
+﻿<Window x:Class="Gemo_test_application.Applications"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gemo_test_application"
+        mc:Ignorable="d"
+        Title="Создание заявки" Height="600" Width="800">
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Background="Green">
+                <TextBlock Text="ГЕМОТЕСТ - медицинская лаборатория" FontSize="25" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+            </StackPanel>
+            <Frame Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+                <Button Name="btnSeal" FontSize="15" Content="Печать" Background="Transparent" BorderThickness="0" Padding="10 0" Foreground="Green" Click="btnSeal_Click"></Button>
+                <Button Name="btnAccept" FontSize="15" Content="Ок" Background="Transparent" BorderThickness="0" Padding="10 0" Foreground="Green" Click="btnAccept_Click"></Button>
+                <Button Name="btnClose" FontSize="15" Content="Закрыть" Background="Transparent" BorderThickness="0" Padding="10 0" Foreground="Green" Click="btnClose_Click"></Button>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

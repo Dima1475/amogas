@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище GemoTestModelContainer" CdmEntityContainer="GemoTestEntities">
+    <EntitySetMapping Name="Analyzes">
+      <EntityTypeMapping TypeName="GemoTestModel.Analyzes">
+        <MappingFragment StoreEntitySet="Analyzes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnalyzesForOrder">
+      <EntityTypeMapping TypeName="GemoTestModel.AnalyzesForOrder">
+        <MappingFragment StoreEntitySet="AnalyzesForOrder">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Needed" ColumnName="Needed" />
+          <ScalarProperty Name="id_Analyze" ColumnName="id_Analyze" />
+          <ScalarProperty Name="id_Order" ColumnName="id_Order" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnalyzesForStudy">
+      <EntityTypeMapping TypeName="GemoTestModel.AnalyzesForStudy">
+        <MappingFragment StoreEntitySet="AnalyzesForStudy">
+          <ScalarProperty Name="id_Analyzes" ColumnName="id_Analyzes" />
+          <ScalarProperty Name="id_Study" ColumnName="id_Study" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnalyzesResults">
+      <EntityTypeMapping TypeName="GemoTestModel.AnalyzesResults">
+        <MappingFragment StoreEntitySet="AnalyzesResults">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="id_Analyze" ColumnName="id_Analyze" />
+          <ScalarProperty Name="id_Patient" ColumnName="id_Patient" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="GemoTestModel.Doctors">
+        <MappingFragment StoreEntitySet="Doctors">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Elements">
+      <EntityTypeMapping TypeName="GemoTestModel.Elements">
+        <MappingFragment StoreEntitySet="Elements">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElementsNeedForAnalyze">
+      <EntityTypeMapping TypeName="GemoTestModel.ElementsNeedForAnalyze">
+        <MappingFragment StoreEntitySet="ElementsNeedForAnalyze">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="id_Element" ColumnName="id_Element" />
+          <ScalarProperty Name="id_Analyze" ColumnName="id_Analyze" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="GemoTestModel.Genders">
+        <MappingFragment StoreEntitySet="Genders">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="GemoTestModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="EndPrice" ColumnName="EndPrice" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="id_Study" ColumnName="id_Study" />
+          <ScalarProperty Name="id_Doctor" ColumnName="id_Doctor" />
+          <ScalarProperty Name="id_Patient" ColumnName="id_Patient" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="GemoTestModel.Patients">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="id_Gender" ColumnName="id_Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="GemoTestModel.Services">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServicesForStudy">
+      <EntityTypeMapping TypeName="GemoTestModel.ServicesForStudy">
+        <MappingFragment StoreEntitySet="ServicesForStudy">
+          <ScalarProperty Name="id_Service" ColumnName="id_Service" />
+          <ScalarProperty Name="id_Study" ColumnName="id_Study" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Study">
+      <EntityTypeMapping TypeName="GemoTestModel.Study">
+        <MappingFragment StoreEntitySet="Study">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
